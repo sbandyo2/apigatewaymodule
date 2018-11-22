@@ -1,0 +1,8 @@
+FROM anapsix/alpine-java:latest
+MAINTAINER ibm.com
+RUN apk --no-cache add netcat-openbsd
+COPY gateway.jar .
+COPY gateway-entrypoint.sh .
+RUN chmod +x gateway-entrypoint.sh
+ENTRYPOINT ["sh","gateway-entrypoint.sh"]
+EXPOSE 8080

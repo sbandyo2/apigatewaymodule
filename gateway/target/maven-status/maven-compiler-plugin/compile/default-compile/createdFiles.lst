@@ -1,0 +1,4 @@
+com\ibm\gateway\GatewayApplication.class
+com\ibm\gateway\JwtConfig.class
+com\ibm\gateway\JwtTokenAuthenticationFilter.class
+com\ibm\gateway\SecurityTokenConfig.class
