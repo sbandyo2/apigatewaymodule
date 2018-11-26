@@ -44,6 +44,7 @@ public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/csa" + "/csa-service/**").hasRole("CSAUSER")
 				.antMatchers("/dwaas" + "/dwaas-service/**").hasRole("DWAASUSER")
 				.antMatchers("/deviceibm" + "/deviceibm-service/**").hasRole("DEVICEIBMUSER")
+				.antMatchers("/backend-service" + "/backend-service/**").hasRole("DBUSER")
 				.antMatchers("/ariba" + "/sapariba-service/**").hasRole("ADMIN")
 				// Any other request must be authenticated
 				.anyRequest().authenticated();
