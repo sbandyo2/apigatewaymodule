@@ -41,7 +41,7 @@ public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
 			    .antMatchers(HttpMethod.GET, "/actuator/health").permitAll()
 			    .antMatchers(HttpMethod.GET, "/actuator").permitAll()
 			    //.antMatchers(HttpMethod.POST, "/admin/instances").permitAll()
-			    //.antMatchers(HttpMethod.OPTIONS, "/backend-service/**").permitAll()
+			    .antMatchers(HttpMethod.OPTIONS, "/backend-service/**").permitAll()
 			    
 				// must be an admin if trying to access admin area
 				// (authentication is also required here)
@@ -50,7 +50,7 @@ public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/csa" + "/csa-service/**").hasRole("CSAUSER")
 				.antMatchers("/dwaas" + "/dwaas-service/**").hasRole("DWAASUSER")
 				.antMatchers("/deviceibm" + "/deviceibm-service/**").hasRole("DEVICEIBMUSER")
-				.antMatchers("/backend-service" + "/backend-service/**").hasRole("DBUSER")
+				//.antMatchers("/backend-service" + "/backend-service/**").hasRole("DBUSER")
 				.antMatchers("/ariba" + "/sapariba-service/**").hasRole("ADMIN")
 				// Any other request must be authenticated
 				.anyRequest().authenticated()
