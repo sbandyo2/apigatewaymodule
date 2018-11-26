@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.header.writers.StaticHeadersWriter;
 
 @EnableWebSecurity
 public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
@@ -19,8 +20,10 @@ public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		
 		http.csrf()
 				.disable()
+				
 				// make sure we use stateless session; session won't be used to
 				// store user's state.
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -47,7 +50,14 @@ public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/backend-service" + "/backend-service/**").hasRole("DBUSER")
 				.antMatchers("/ariba" + "/sapariba-service/**").hasRole("ADMIN")
 				// Any other request must be authenticated
-				.anyRequest().authenticated();
+				.anyRequest().authenticated()
+				.and()
+				.headers()
+				.addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Origin", "*"))
+	            .addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Methods", "POST, GET"))
+	            .addHeaderWriter(new StaticHeadersWriter("Access-Control-Max-Age", "3600"))
+	            .addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Credentials", "true"))
+	            .addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Headers", "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization"));;
 	}
 
 	@Bean
