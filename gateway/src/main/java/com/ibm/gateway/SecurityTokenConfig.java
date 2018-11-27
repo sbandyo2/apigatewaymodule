@@ -41,7 +41,7 @@ public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
 			    .antMatchers(HttpMethod.GET, "/actuator/health").permitAll()
 			    .antMatchers(HttpMethod.GET, "/actuator").permitAll()
 			    //.antMatchers(HttpMethod.POST, "/admin/instances").permitAll()
-			    .antMatchers(HttpMethod.OPTIONS, "/backend-service/**").permitAll()
+			    //.antMatchers(HttpMethod.OPTIONS, "/backend-service/**").permitAll()
 			    .antMatchers(HttpMethod.POST, "/backend-service/**").permitAll()
 			    
 				// must be an admin if trying to access admin area
@@ -58,11 +58,11 @@ public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
 				.and()
 				.headers()
 				.addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Origin", "*"))
-	            .addHeaderWriter(new StaticHeadersWriter("Access-Control-Expose-Headers","Authorization"))
+	            .addHeaderWriter(new StaticHeadersWriter("Access-Control-Expose-Headers","Authorization"));
 	            //.addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Methods","GET, HEAD, OPTIONS, POST, PUT"))
 	            //.addHeaderWriter(new StaticHeadersWriter("Access-Control-Max-Age", "3600"))
 	            //.addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Credentials", "true"))
-	            .addHeaderWriter(new StaticHeadersWriter("Access-Control-Request-Headers", "Content-Type, Authorization"));
+	            //.addHeaderWriter(new StaticHeadersWriter("Access-Control-Request-Headers", "Content-Type, Authorization"));
 	            //.addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Headers", "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization"));;
 	}
 
