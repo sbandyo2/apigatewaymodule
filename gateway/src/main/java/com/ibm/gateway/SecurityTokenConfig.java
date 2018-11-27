@@ -43,6 +43,7 @@ public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
 			    //.antMatchers(HttpMethod.POST, "/admin/instances").permitAll()
 			    //.antMatchers(HttpMethod.OPTIONS, "/backend-service/**").permitAll()
 			    .antMatchers(HttpMethod.POST, "/backend-service/**").permitAll()
+			    .antMatchers(HttpMethod.GET, "/backend-service/**").permitAll()
 			    
 				// must be an admin if trying to access admin area
 				// (authentication is also required here)
