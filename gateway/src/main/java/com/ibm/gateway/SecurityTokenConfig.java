@@ -52,6 +52,7 @@ public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/ordernow" + "/on-service/**").hasRole("ONUSER")
 				.antMatchers("/yourprocure" + "/yourprocure-service/**").hasRole("YPUSER")
 				.antMatchers("/csa" + "/csa-service/**").hasRole("CSAUSER")
+				.antMatchers("/csa" + "/csa-servicew2/**").hasRole("CSAUSER")
 				.antMatchers("/dwaas" + "/dwaas-service/**").hasRole("DWAASUSER")
 				.antMatchers("/deviceibm" + "/deviceibm-service/**").hasRole("DEVICEIBMUSER")
 				//.antMatchers("/backend-service" + "/backend-service/**").hasRole("DBUSER")
