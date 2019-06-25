@@ -45,9 +45,6 @@ public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
 			    .antMatchers(HttpMethod.GET, "/backend-service/getAttachment/**").permitAll()
 			    .antMatchers(HttpMethod.GET, "/backend-service/getCSVContent/**").permitAll()
 			    .antMatchers(HttpMethod.GET, "/backend-service/getJSONAttachment/**").permitAll()
-
-			    .antMatchers("/pingService" + "/on-service/**").permitAll()
-				.antMatchers("/pingService" + "/on-servicew2/**").permitAll()
 			    
 				// must be an admin if trying to access admin area
 				// (authentication is also required here)
