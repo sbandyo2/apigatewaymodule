@@ -46,18 +46,12 @@ public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
 			    .antMatchers(HttpMethod.GET, "/backend-service/getCSVContent/**").permitAll()
 			    .antMatchers(HttpMethod.GET, "/backend-service/getJSONAttachment/**").permitAll()
 
-			    .antMatchers(HttpMethod.GET, "/on-service/pingService").permitAll()
-			    .antMatchers(HttpMethod.GET, "/on-servicew2/pingService").permitAll()
 			    
 				// must be an admin if trying to access admin area
 				// (authentication is also required here)
-				.antMatchers("/ordernow" + "/on-service/ordernow").hasRole("ONUSER")
-				.antMatchers("/ordernow" + "/on-service/getSuppPartneringInfo").hasRole("ONUSER")
-				
-				.antMatchers("/ordernow" + "/on-servicew2/ordernow").hasRole("ONUSER")
-				.antMatchers("/ordernow" + "/on-servicew2/getSuppPartneringInfo").hasRole("ONUSER")
-				
-				
+				.antMatchers("/ordernow" + "/on-service/**").hasRole("ONUSER")
+				.antMatchers("/ordernow" + "/on-servicew2/**").hasRole("ONUSER")
+					
 				.antMatchers("/yourprocure" + "/yourprocure-service/**").hasRole("YPUSER")
 				.antMatchers("/yourprocure" + "/yourprocurew2-service/**").hasRole("YPUSER")
 				
