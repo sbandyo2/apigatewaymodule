@@ -45,7 +45,7 @@ public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
 			    .antMatchers(HttpMethod.GET, "/backend-service/getAttachment/**").permitAll()
 			    .antMatchers(HttpMethod.GET, "/backend-service/getCSVContent/**").permitAll()
 			    .antMatchers(HttpMethod.GET, "/backend-service/getJSONAttachment/**").permitAll()
-			    
+
 			    .antMatchers(HttpMethod.GET, "/on-service/pingService").permitAll()
 			    .antMatchers(HttpMethod.GET, "/on-servicew2/pingService").permitAll()
 			    
